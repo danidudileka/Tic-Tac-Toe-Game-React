@@ -1,3 +1,4 @@
+/* Default styles */
 .container {
   text-align: center;
 }
@@ -38,8 +39,31 @@
   width: 564px;
   display: flex;
   margin: auto;
+  justify-content: center;
 }
 
 .boxes img {
   margin: 50px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .reset {
+    width: 200px;
+    height: 80px;
+    font-size: 1.5rem;
+  }
+
+  .boxes {
+    height: 120px;
+    width: 120px;
+  }
+
+  .board {
+    width: 80%;
+  }
 }

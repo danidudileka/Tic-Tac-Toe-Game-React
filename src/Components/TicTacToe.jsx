@@ -10,7 +10,7 @@ const TicTacToe = () => {
   let [count, setCount] = useState(0);
   let [lock, setLock] = useState(false);
   let [title, setTitle] = useState({
-    text: "Tic Tac Toe Game In React",
+    text: "Tic Tac Toe Game",
     color: "",
   });
 
@@ -45,14 +45,23 @@ const TicTacToe = () => {
   };
 
   const checkWin = () => {
-    if (data[0] === data[1] && data[1] === data[2] && data[2] !== "") {won(data[2])}
-    else if (data[3] === data[4] && data[4] === data[5] && data[5] !== "") {won(data[5])}
-    else if (data[6] === data[7] && data[7] === data[8] && data[8] !== "") {won(data[8])}
-    else if (data[0] === data[3] && data[3] === data[6] && data[6] !== "") {won(data[6])}
-    else if (data[1] === data[4] && data[4] === data[7] && data[7] !== "") {won(data[7])}
-    else if (data[2] === data[5] && data[5] === data[8] && data[8] !== "") {won(data[8])}
-    else if (data[0] === data[4] && data[4] === data[8] && data[8] !== "") {won(data[8])}
-    else if (data[2] === data[4] && data[4] === data[6] && data[6] !== "") {won(data[6])}
+    if (data[0] === data[1] && data[1] === data[2] && data[2] !== "") {
+      won(data[2]);
+    } else if (data[3] === data[4] && data[4] === data[5] && data[5] !== "") {
+      won(data[5]);
+    } else if (data[6] === data[7] && data[7] === data[8] && data[8] !== "") {
+      won(data[8]);
+    } else if (data[0] === data[3] && data[3] === data[6] && data[6] !== "") {
+      won(data[6]);
+    } else if (data[1] === data[4] && data[4] === data[7] && data[7] !== "") {
+      won(data[7]);
+    } else if (data[2] === data[5] && data[5] === data[8] && data[8] !== "") {
+      won(data[8]);
+    } else if (data[0] === data[4] && data[4] === data[8] && data[8] !== "") {
+      won(data[8]);
+    } else if (data[2] === data[4] && data[4] === data[6] && data[6] !== "") {
+      won(data[6]);
+    }
   };
 
   const won = (winner) => {
@@ -60,12 +69,12 @@ const TicTacToe = () => {
     if (winner === "x") {
       setTitle({
         text: "Congratulations: X Wins",
-        color: "#FFC226", // Set the color for X wins
+        color: "#FFC226",
       });
     } else if (winner === "o") {
       setTitle({
         text: "Congratulations: O Wins",
-        color: "#26ffcb", // Set the color for O wins
+        color: "#26ffcb",
       });
     }
   };
@@ -73,7 +82,7 @@ const TicTacToe = () => {
   const handleReset = () => {
     setLock(false);
     data = ["", "", "", "", "", "", "", "", ""];
-    setTitle({text:"Tic Tac Toe Game In React", color: "#fff"});
+    setTitle({ text: "Tic Tac Toe Game", color: "#fff" });
     boxArray.forEach((box) => {
       box.current.innerHTML = "";
     });
@@ -81,9 +90,9 @@ const TicTacToe = () => {
 
   return (
     <div className="container">
-        <h1 className="title" style={{ color: title.color }} ref={titleRef}>
-            {title.text}
-        </h1>
+      <h1 className="title" style={{ color: title.color }} ref={titleRef}>
+        {title.text}
+      </h1>
       <div className="board">
         <div className="row1">
           <div className="boxes" ref={box1} onClick={(e) => toggle(e, 0)}></div>
