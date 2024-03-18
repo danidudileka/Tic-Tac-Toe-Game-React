@@ -9,7 +9,10 @@ let data = ["", "", "", "", "", "", "", "", ""];
 const TicTacToe = () => {
   let [count, setCount] = useState(0);
   let [lock, setLock] = useState(false);
-  let [title, setTitle] = useState(`Tic Tac Toe Game In React`);
+  let [title, setTitle] = useState({
+    text: "Tic Tac Toe Game In React",
+    color: "",
+  });
 
   let titleRef = useRef(null);
   let box1 = useRef(null);
@@ -55,16 +58,22 @@ const TicTacToe = () => {
   const won = (winner) => {
     setLock(true);
     if (winner === "x") {
-      setTitle(`Congratulations: X Wins`);
+      setTitle({
+        text: "Congratulations: X Wins",
+        color: "#FFC226", // Set the color for X wins
+      });
     } else if (winner === "o") {
-      setTitle(`Congratulations: O Wins`);
+      setTitle({
+        text: "Congratulations: O Wins",
+        color: "#26ffcb", // Set the color for O wins
+      });
     }
   };
 
   const handleReset = () => {
     setLock(false);
     data = ["", "", "", "", "", "", "", "", ""];
-    setTitle("Tic Tac Toe Game In React");
+    setTitle({text:"Tic Tac Toe Game In React", color: "#fff"});
     boxArray.forEach((box) => {
       box.current.innerHTML = "";
     });
@@ -72,9 +81,9 @@ const TicTacToe = () => {
 
   return (
     <div className="container">
-      <h1 className="title" ref={titleRef}>
-        {title}
-      </h1>
+        <h1 className="title" style={{ color: title.color }} ref={titleRef}>
+            {title.text}
+        </h1>
       <div className="board">
         <div className="row1">
           <div className="boxes" ref={box1} onClick={(e) => toggle(e, 0)}></div>
