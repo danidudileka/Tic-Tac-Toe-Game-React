@@ -1,10 +1,9 @@
-/* Default styles */
 .container {
   text-align: center;
 }
 
 .title {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   color: #fff;
   font-size: 3rem;
   display: flex;
