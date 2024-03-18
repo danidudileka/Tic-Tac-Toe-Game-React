@@ -1,0 +1,28 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  margin-top: 4rem;
+  color: #fff;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title span {
+  color: #26ffcb;
+  padding-left: 1rem;
+}
+
+.reset {
+  width: 10rem;
+  height: 6rem;
+  border: none;
+  border-radius: 2rem;
+  background: #1f3540;
+  font-size: 1.8rem;
+  color: #26ffcb;
+  margin: 2rem;
+}
